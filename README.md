@@ -1,8 +1,12 @@
 # Textured Cube
 
+⚡️[Link to demo on Vercel](https://textured-cube-dclt.vercel.app/)
+
 This is an example of rendering a textured, semi-transparent BoxGeometry with custom vertex and fragment shaders. The main implementation of the geometry and shader logic is in the `src/demo` directory.
 
 This project uses as a starting point the [simple-threejs-typescript-starter](https://github.com/mayacoda/simple-threejs-typescript-starter/), also by me.
+
+![Screenshot](./public/img.png)
 
 ## Local development
 
