@@ -5,9 +5,9 @@ import { DebugUI } from './interface/DebugUI'
 import { Sizes } from './Sizes'
 import { Camera } from './Camera'
 import { Resources } from './Resources'
-import { InfoConfig, InfoUI } from './interface/InfoUI'
 import { Experience, ExperienceConstructor } from './Experience'
 import { Loader } from './interface/Loader'
+import { Raycaster } from './Raycaster'
 
 export class Engine {
   public readonly camera!: Camera
@@ -15,21 +15,19 @@ export class Engine {
   public readonly renderEngine!: RenderEngine
   public readonly time!: RenderLoop
   public readonly debug!: DebugUI
-  public readonly infoUI!: InfoUI
   public readonly sizes!: Sizes
   public readonly canvas!: HTMLCanvasElement
   public readonly resources!: Resources
+  public readonly rayCaster!: Raycaster
   public readonly experience!: Experience
   private readonly loader!: Loader
 
   constructor({
     canvas,
     experience,
-    info,
   }: {
     canvas: HTMLCanvasElement
     experience: ExperienceConstructor
-    info?: InfoConfig
   }) {
     if (!canvas) {
       throw new Error('No canvas provided')
@@ -41,10 +39,10 @@ export class Engine {
     this.time = new RenderLoop(this)
     this.scene = new THREE.Scene()
     this.camera = new Camera(this)
-    this.infoUI = new InfoUI(info)
     this.renderEngine = new RenderEngine(this)
     this.experience = new experience(this)
     this.resources = new Resources(this.experience.resources)
+    this.rayCaster = new Raycaster(this)
     this.loader = new Loader()
 
     this.resources.on('loaded', () => {
@@ -58,10 +56,12 @@ export class Engine {
   }
 
   update(delta: number) {
+    if (!this.loader.isComplete) return
     this.camera.update()
     this.renderEngine.update()
     this.experience.update(delta)
     this.debug.update()
+    this.rayCaster.update()
   }
 
   resize() {

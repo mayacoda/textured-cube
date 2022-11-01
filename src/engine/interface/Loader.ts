@@ -2,6 +2,7 @@ import './loader.scss'
 
 export class Loader {
   element: HTMLDivElement
+  isComplete = false
 
   constructor() {
     this.element = document.createElement('div')
@@ -39,5 +40,6 @@ export class Loader {
 
   complete() {
     this.element.remove()
+    this.isComplete = true
   }
 }

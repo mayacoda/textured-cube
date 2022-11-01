@@ -15,7 +15,6 @@
   },
   "type": "module",
   "dependencies": {
-    "lil-gui": "^0.17.0",
     "three": "^0.145.0"
   },
   "devDependencies": {

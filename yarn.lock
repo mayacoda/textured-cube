@@ -1030,13 +1030,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lil-gui@npm:^0.17.0":
-  version: 0.17.0
-  resolution: "lil-gui@npm:0.17.0"
-  checksum: a6f33e90748ea98477f1f7af6d6cbdc4a1b38ce9da86d674d73f7b0bbdc7f3e947d81edee04c32f33fb28c69a108ba04c24270a8398064ffcc56ffeabc0a916e
-  languageName: node
-  linkType: hard
-
 "lilconfig@npm:2.0.5":
   version: 2.0.5
   resolution: "lilconfig@npm:2.0.5"
@@ -1833,7 +1826,6 @@ __metadata:
   dependencies:
     "@types/three": ^0.144.0
     husky: ^8.0.1
-    lil-gui: ^0.17.0
     lint-staged: ^13.0.3
     prettier: 2.7.1
     sass: ^1.55.0
